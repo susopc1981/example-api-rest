@@ -4,7 +4,7 @@ import TableCol from "./TableCol";
 class TableRow extends React.Component {
   render() {
     if (this.props.data) {
-      return this.props.data.map((value, index) => {
+      const data = this.props.data.map((value, index) => {
         return (
           <tr
             key={index}
@@ -18,6 +18,27 @@ class TableRow extends React.Component {
           </tr>
         );
       });
+      return (
+        <table className="table table-hover border bg-success text-dark font-weight-bold">
+          <thead>
+            <tr>
+              <th scope="col" key="1">
+                Nº
+              </th>
+              <th scope="col" key="2">
+                E-Mail
+              </th>
+              <th scope="col" key="3">
+                Nombre
+              </th>
+              <th scope="col" key="4">
+                Apellido
+              </th>
+            </tr>
+          </thead>
+          <tbody>{data}</tbody>
+        </table>
+      );
     } else {
       return (
         <>

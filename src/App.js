@@ -11,6 +11,7 @@ class App extends React.Component {
     this.state = {
       currentUser: {},
       isLoading: true,
+      disabled: true,
     };
   }
   HandleOnClick = async (id) => {
@@ -30,34 +31,11 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <table className="table table-hover border bg-success text-dark font-weight-bold">
-                {this.state.users ? (
-                  <thead>
-                    <tr>
-                      <th scope="col" key="1">
-                        Nº
-                      </th>
-                      <th scope="col" key="2">
-                        E-Mail
-                      </th>
-                      <th scope="col" key="3">
-                        Nombre
-                      </th>
-                      <th scope="col" key="4">
-                        Apellido
-                      </th>
-                    </tr>
-                  </thead>
-                ) : (
-                  <></>
-                )}
-                <tbody>
-                  <TableRow
-                    data={this.state.users}
-                    onClick={this.HandleOnClick}
-                  />
-                </tbody>
-              </table>
+              <TableRow
+                data={this.state.users}
+                onClick={this.HandleOnClick}
+                className={this.state.disabled}
+              />
             </div>
           </div>
           <div className="row d-flex justify-content-center">
